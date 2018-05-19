@@ -39,6 +39,8 @@ passport.deserializeUser(User.deserializeUser());
 // call function to every route
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 })
 
